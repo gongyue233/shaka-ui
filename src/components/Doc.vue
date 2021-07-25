@@ -1,10 +1,10 @@
 <template>
-  <div>首页</div>
+  <div>侧边de 栏</div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Home",
+    name:'Doc'
 };
 </script>
 
