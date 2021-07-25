@@ -1,8 +1,4 @@
 <template>
-  <Home />  
-  <router-link to="/doc">侧边栏</router-link>
-
-  <hr>
   <router-view />
 </template>
 
