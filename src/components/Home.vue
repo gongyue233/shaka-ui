@@ -1,16 +1,16 @@
 <template>
   <Topnav />
-  <hr>
-  <div>Home</div>
+  <Doc />
 </template>
 
 <script lang="ts">
+import Doc from './Doc.vue';
 import Topnav from './Topnav.vue';
 export default {
-  components: { Topnav },
+  components: { Topnav, Doc },
   name: "Home",
   component: {
-    Topnav
+    Topnav, Doc
   }
 };
 </script>

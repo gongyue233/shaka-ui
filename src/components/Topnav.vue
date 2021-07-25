@@ -22,7 +22,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 18px 24px;
-  background-color: #276678;
+  background-color: #1687A7;
   color: #f6f5f5;
 }
 .logo {

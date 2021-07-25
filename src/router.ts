@@ -1,3 +1,5 @@
+/// <reference path="shims-vue.d.ts"/>
+
 import { createWebHashHistory, createRouter } from "vue-router";
 import Home from "./components/Home.vue";
 import Doc from "./components/Doc.vue";
