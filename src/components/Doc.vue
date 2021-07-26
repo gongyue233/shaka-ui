@@ -1,5 +1,5 @@
 <template>
-  <div class="doc-nav">
+  <div class="doc-nav" v-if="asideVisible">
     <div class="dov-nav-item">
       <span class="sort-name">开发指南</span>
       <ul class="items">
@@ -19,8 +19,14 @@
 </template>
 
 <script lang="ts">
+import { inject, Ref } from "vue";
 export default {
   name: "Doc",
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    return {asideVisible}
+    
+  },
 };
 </script>
 
@@ -29,6 +35,7 @@ export default {
   padding: 24px 0px 0px 30px;
   min-width: 220px;
   max-width: 220px;
+  overflow-y: auto;  
 }
 .dov-nav-item {
   color: #1687a7;

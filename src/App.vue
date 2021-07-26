@@ -3,12 +3,17 @@
 </template>
 
 <script>
-import Home from './components/Home.vue'
-
+import Home from "./components/Home.vue";
+import { ref, provide } from "vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Home
-  }
-}
+    Home,
+  },
+  setup() {
+    const width = document.documentElement.clientWidth;
+    const asideVisible = ref(width <= 500 ? false : true);
+    provide("asideVisible", asideVisible);  
+  },
+};
 </script>

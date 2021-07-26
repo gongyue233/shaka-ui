@@ -4,14 +4,12 @@
 </template>
 
 <script lang="ts">
-import Doc from './Doc.vue';
-import Topnav from './Topnav.vue';
+import Doc from "./Doc.vue";
+import Topnav from "./Topnav.vue";
 export default {
-  components: { Topnav, Doc },
   name: "Home",
-  component: {
-    Topnav, Doc
-  }
+  components: { Topnav, Doc },
+  
 };
 </script>
 
