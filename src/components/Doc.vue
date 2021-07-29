@@ -1,9 +1,11 @@
 <template>
+  <Topnav />
+  <div class="doc-all">
   <div class="doc-nav" v-if="asideVisible">
     <div class="dov-nav-item">
       <span class="sort-name">开发指南</span>
       <ul class="items">
-        <li>介绍</li>
+        <li>介绍</li> 
         <li>安装</li>
       </ul>
     </div>
@@ -11,21 +13,30 @@
       <span class="sort-name">基础组件</span>
       <ul class="items">
         <li>Switch 开关</li>
-        <li>Button 按钮</li>
+        <li>
+          <router-link to="/doc/button">Button 按钮</router-link>  
+        </li> 
         <li>Dialog 弹出框</li>
       </ul>
     </div>
+  </div>
+  <main class="doc-content">
+    <router-view />
+  </main>
   </div>
 </template>
 
 <script lang="ts">
 import { inject, Ref } from "vue";
+import Topnav from './Topnav.vue';
 export default {
   name: "Doc",
+  components:{
+    Topnav
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible}
-    
+    return {asideVisible}    
   },
 };
 </script>
@@ -52,5 +63,9 @@ export default {
     margin: 8px 0px;
     padding: 8px 0px;
   }
+}
+.doc-all{
+  display: flex;
+  
 }
 </style>

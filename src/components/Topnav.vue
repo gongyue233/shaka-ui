@@ -1,7 +1,7 @@
 <template>
   <div class="topnav">
     <img src="../assets/menu.png" alt="" @click="toggleAside">
-    <span class="logo">Shaka</span>
+    <span class="logo" @click="toggleAside">Shaka</span>
     <ul class="menu">
       <li>GitHub</li>
       <li><router-link to="/">首页</router-link></li>
@@ -52,12 +52,13 @@ export default {
     >.logo{
       margin: 0 auto;
       padding: 0px;
+      transform: translateX(-15px);
     }
     > .menu{
       display: none;
     }
     img{
-      display:inline-block;
+      display:block;
       width: 30px;
       height: 30px;
     }
