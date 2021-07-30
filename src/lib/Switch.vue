@@ -5,7 +5,7 @@
       :class="{ checked }"
       @click="toggleSwitch"
     >
-      <span class="shaka-switch-span"></span>
+      <span class="shaka-switch-span checked"></span>
     </button>
   </div>
 </template>
@@ -28,25 +28,36 @@ export default {
 
 <style lang="scss">
 $switch-h: 30px;
-$switch-color: #1687a7;
+$switch-active-color: #1687a7;
+$switch-inactive-color: #f5f5f5;
 .shaka-switch-button {
   height: $switch-h;
   width: $switch-h * 2;
-  border: none;
-  background-color: #fff;
+  background-color: $switch-inactive-color;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: $switch-h/2;
   position: relative;
-  > .shaka-switch-span {
+  span {
     position: absolute;
-    border: 1px solid $switch-color;
-    right: -1px;
-    top: -1px;
-    height: $switch-h;
-    width: $switch-h;
+    left: 0px;
+    top: 0px;
+    height: 28px;
+    width: 28px;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: $switch-h/2;
+    transition: left 1000ms;
   }
+}
+.shaka-switch-button.checked {
+  background-color: $switch-active-color;
+  > .shaka-switch-span {
+    left: 30px;    
+    top: 0;
+    border: 1px solid $switch-active-color;
+  }
+}
+.shaka-switch-button:focus{
+  outline: none;
 }
 </style>
