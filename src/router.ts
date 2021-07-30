@@ -8,7 +8,6 @@ import SwitchDemo from './components/Demo/SwitchDemo.vue';
 import DialogDemo from './components/Demo/DialogDemo.vue';
 
 
-
 const history = createWebHashHistory();
 export const router = createRouter({
   history: history,
