@@ -1,5 +1,5 @@
 <template>
-  <button class="shaka-button">
+  <button class="shaka-btn" :class="{[`shaka-btn-${size}`]:size}">
     <slot />
   </button>
 </template>
@@ -34,7 +34,7 @@ $shaka-btn-padding-lg: 16px;
 $shaka-font-size-sm: 12px;
 $shaka-btn-h-sm: 34px;
 $shaka-btn-padding-sm: 12px;
-.shaka-button {
+.shaka-btn {
   box-sizing: border-box;
   display: inline-flex;
   justify-content: center;
@@ -52,6 +52,12 @@ $shaka-btn-padding-sm: 12px;
   }
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.shaka-btn-middle{
+    border: 1px solid red;
+  }
+  &.shaka-btn-lg{
+    border: 1px solid red;
   }
 }
 </style>
