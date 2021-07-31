@@ -1,13 +1,18 @@
 <template>
   <div>switchDemo</div>
-  <Switch />
+  <shaka-switch v-model:checked="checked" />
 </template>
 
 <script lang="ts">
-import Switch from '../../lib/Switch.vue';
+import { ref } from 'vue';
+import ShakaSwitch from '../../lib/ShakaSwitch.vue';
 export default {
   name: "SwitchDemo",
-  components: {Switch}
+  components: {ShakaSwitch},
+  setup(){
+    const checked = ref(true);
+    return {checked}
+  }
 };
 </script>
 
