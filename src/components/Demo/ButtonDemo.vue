@@ -1,7 +1,7 @@
 <template>
 <div>
   <h1>ButtonDemo</h1>
-  <shaka-button size="lg">提交按钮</shaka-button>
+  <shaka-button size="large" theme="default">提交按钮</shaka-button>
 </div>
 </template>
 
