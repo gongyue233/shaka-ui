@@ -4,9 +4,8 @@
   <shaka-button size="large" theme="default">提交按钮</shaka-button>
   <shaka-button disabled>只有disabled</shaka-button>
   <shaka-button :disabled="true">disabled为 true</shaka-button>
-  <shaka-button :disabled="false" size="large" theme="normal">disabled为 false</shaka-button>
-
-
+  <shaka-button :disabled="false" size="large" shape="round" theme="normal">disabled为 false</shaka-button>
+  <shaka-button disabled shape="round">只有disabled</shaka-button>
 </div>
 </template>
 

@@ -10,9 +10,9 @@ export default {
   name: "ShakaButton",
   inheritAttrs: false,
   props: {
-    size: {  // 支持normal 、large、small
+    size: {  // 支持middle 、large、small
       type: String,
-      default: "normal",
+      default: "middle",
     },
     theme: {  // 支持 warn、danger、normal、default
       type: String,
@@ -21,14 +21,19 @@ export default {
     disabled:{
       type:Boolean,
       default: false
+    },
+    shape:{ //支持 square、round 两种类型，默认是square
+      type:String,
+      default: 'square'
     }
   },
   setup(props) {
-    const { size, theme } = props;
+    const { size, theme,shape } = props;
     const classes = computed(() => {
       return {
         [`shaka-btn-size-${size}`]: size,
         [`shaka-btn-theme-${theme}`]: theme,
+        [`shaka-btn-shape-${shape}`]: shape,
       };
     });
     return { classes };
@@ -48,7 +53,8 @@ $shaka-btn-bclr-warn:#ff976a;
 $shaka-btn-bclr-norm: #1687a7;
 
 $shaka-btn-border: 1px;
-$shaka-btn-radius: 0;
+$shaka-btn-border-radius:50%;
+
 
 $shaka-btn-padding-md: 14px;
 $shaka-font-size-md: 14px;
@@ -75,20 +81,29 @@ $shaka-btn-padding-sm: 12px;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.shaka-btn-size-normal {
+  &.shaka-btn-size-middle {
     height: $shaka-btn-h-md;
     padding: 0px $shaka-btn-padding-md;
     font-size: $shaka-font-size-md;
+    &.shaka-btn-shape-round{
+      border-radius: $shaka-btn-h-md/2;
+    }
   }
   &.shaka-btn-size-large {
     height: $shaka-btn-h-lg;
     padding: 0px $shaka-btn-padding-lg;
     font-size: $shaka-font-size-lg;
+    &.shaka-btn-shape-round{
+      border-radius: $shaka-btn-h-lg/2;
+    }
   }
   &.shaka-btn-size-small {
     height: $shaka-btn-h-sm;
     padding: 0px $shaka-btn-padding-sm;
     font-size: $shaka-font-size-sm;
+    &.shaka-btn-shape-round{
+      border-radius: $shaka-btn-h-sm/2;
+    }
   }
   &.shaka-btn-theme-warn {
     background-color: $shaka-btn-bclr-warn;
@@ -130,6 +145,9 @@ $shaka-btn-padding-sm: 12px;
   &[disabled]{
     cursor: not-allowed;
     opacity: 0.5;
+  }
+  &.shaka-btn-shape-square{
+    border-radius: 0px;
   }
 
 }
