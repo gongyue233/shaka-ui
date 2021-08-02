@@ -1,5 +1,5 @@
 <template>
-  <button class="shaka-btn" :class="classes">
+  <button class="shaka-btn" :class="classes" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -10,14 +10,18 @@ export default {
   name: "ShakaButton",
   inheritAttrs: false,
   props: {
-    size: {
+    size: {  // 支持normal 、large、small
       type: String,
       default: "normal",
     },
-    theme: {
+    theme: {  // 支持 warn、danger、normal、default
       type: String,
       default: "default",
     },
+    disabled:{
+      type:Boolean,
+      default: false
+    }
   },
   setup(props) {
     const { size, theme } = props;
@@ -122,6 +126,10 @@ $shaka-btn-padding-sm: 12px;
       background-color: darken($shaka-btn-bclr-default, 0.1);
       border-color: darken($shaka-btn-border-default, 0.1);
     }
+  }
+  &[disabled]{
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
 }
