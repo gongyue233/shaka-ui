@@ -1,7 +1,11 @@
 <template>
   <button class="shaka-btn" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="shaka-btn-loading">
+      <img :src="loadingColor" alt="">
+    </span>
     <slot />
   </button>
+
 </template>
 
 <script lang="ts">
@@ -25,18 +29,37 @@ export default {
     shape:{ //支持 square、round 两种类型，默认是square
       type:String,
       default: 'square'
-    }
+    },
+    loading:{
+      type: Boolean,
+      default: false
+    },
+    // color:{ //自定义颜色
+    //   type:String,
+    //   default: 'blue'
+    // }
   },
   setup(props) {
-    const { size, theme,shape } = props;
+    const { size, theme,shape} = props;
     const classes = computed(() => {
       return {
         [`shaka-btn-size-${size}`]: size,
-        [`shaka-btn-theme-${theme}`]: theme,
+        [`shaka-btn-${theme}`]: theme,
         [`shaka-btn-shape-${shape}`]: shape,
       };
     });
-    return { classes };
+    // const colores = computed(()=>{
+    //   return "color:"+ color + ";"
+    // })
+    const loadingColor = computed(()=>{
+      let loadingsrc = "src/assets/loading.svg";
+      if(theme!=="default"){
+        loadingsrc = "src/assets/loading2.svg";
+        console.log('非默认值')
+      };
+      return loadingsrc;
+    })
+    return { classes,loadingColor };
   },
 };
 </script>
@@ -54,7 +77,6 @@ $shaka-btn-bclr-norm: #1687a7;
 
 $shaka-btn-border: 1px;
 $shaka-btn-border-radius:50%;
-
 
 $shaka-btn-padding-md: 14px;
 $shaka-font-size-md: 14px;
@@ -105,7 +127,7 @@ $shaka-btn-padding-sm: 12px;
       border-radius: $shaka-btn-h-sm/2;
     }
   }
-  &.shaka-btn-theme-warn {
+  &.shaka-btn-warn {
     background-color: $shaka-btn-bclr-warn;
     border: $shaka-btn-border solid $shaka-btn-bclr-warn;
     &:hover,
@@ -114,7 +136,7 @@ $shaka-btn-padding-sm: 12px;
       border-color: darken(#ff976a, 0.1);
     }
   }
-  &.shaka-btn-theme-danger {
+  &.shaka-btn-danger {
     background-color: $shaka-btn-bclr-danger;
     border: $shaka-btn-border solid $shaka-btn-bclr-danger;
     &:hover,
@@ -123,7 +145,7 @@ $shaka-btn-padding-sm: 12px;
       border-color: darken(#ee0a24,  0.1);
     }
   }
-  &.shaka-btn-theme-normal {
+  &.shaka-btn-normal {
     background-color: $shaka-btn-bclr-norm;
     border: $shaka-btn-border solid $shaka-btn-bclr-norm;
     &:hover,
@@ -132,7 +154,7 @@ $shaka-btn-padding-sm: 12px;
       border-color: darken(#1687a7, 0.1);
     }
   }
-  &.shaka-btn-theme-default {
+  &.shaka-btn-default {
     background-color: $shaka-btn-bclr-default;
     border: $shaka-btn-border solid $shaka-btn-border-default;
     color: $shaka-btn-clr-black;
@@ -149,6 +171,16 @@ $shaka-btn-padding-sm: 12px;
   &.shaka-btn-shape-square{
     border-radius: 0px;
   }
-
+  >.shaka-btn-loading{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    > img{
+      border: 1px solid red;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>
