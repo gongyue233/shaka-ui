@@ -1,11 +1,15 @@
 <template>
-  <div>DialogDemo</div>
+  <div>DialogDemo
+ <shaka-dialog>hi</shaka-dialog>
+
+  </div>
 </template>
 
 <script lang="ts">
+import ShakaDialog from '../../lib/ShakaDialog.vue';
 export default {
-  name: "DialogDemo",
-};
+  components: { ShakaDialog },
+}
 </script>
 
 <style lang="scss" scoped>
