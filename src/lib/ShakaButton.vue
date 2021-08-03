@@ -1,5 +1,5 @@
 <template>
-  <button class="shaka-btn" :class="classes" :disabled="disabled">
+  <button class="shaka-btn" :class="classes" :disabled="disabled" v-bind="$attrs">
     <span v-if="loading" class="shaka-btn-loading">
       <img :src="loadingColor" alt="">
     </span>

@@ -1,15 +1,20 @@
 <template>
-  <div class="shaka-dialog-overlay"></div>
-  <div class="shaka-dialog-wrapper">
-    <div class="shaka-dialog">
-      <header>提示框标题</header>
-      <main>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</main>
-      <footer>
-        <shaka-button>取消</shaka-button>
-        <shaka-button theme="normal">确定</shaka-button>
-      </footer>
+  <template v-if="visible">
+    <div class="shaka-dialog-overlay"></div>
+    <div class="shaka-dialog-wrapper">
+      <div class="shaka-dialog">
+        <header>
+          提示框标题
+          <img src="src/assets/closed.svg" alt="" @click="toggleDialog" />
+        </header>
+        <main>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</main>
+        <footer>
+          <shaka-button @click="toggleDialog">取消</shaka-button>
+          <shaka-button theme="normal" @click="toggleDialog">确定</shaka-button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
@@ -17,6 +22,18 @@ import ShakaButton from "./ShakaButton.vue";
 export default {
   name: "ShakaDialog",
   components: { ShakaButton },
+  props: {
+    visible: {  //支持 visible ，默认为 false
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props, context){
+      const toggleDialog = () => {
+          context.emit('update:visible', !props.visible)
+      };
+      return {toggleDialog}
+  }
 };
 </script>
 
@@ -51,7 +68,14 @@ $shaka-dialog-border: #f0f0f0;
       font-size: 16px;
       padding: 26px 16px 16px 26px;
       border-bottom: 1px solid $shaka-dialog-border;
-      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      > img {
+        width: 20px;
+        height: 20px;
+      }
     }
     > main {
       word-wrap: break-word;
