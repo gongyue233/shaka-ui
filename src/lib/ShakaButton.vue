@@ -30,7 +30,7 @@ export default {
       type:String,
       default: 'square'
     },
-    loading:{
+    loading:{  // 支持加载
       type: Boolean,
       default: false
     },
@@ -173,14 +173,19 @@ $shaka-btn-padding-sm: 12px;
   }
   >.shaka-btn-loading{
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     margin-right: 4px;
+    background-color: inherit;
+    animation: shaka-btn-loading 1.2s infinite linear;
     > img{
-      border: 1px solid red;
       width: 100%;
       height: 100%;
     }
   }
+}
+@keyframes shaka-btn-loading{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
 }
 </style>
