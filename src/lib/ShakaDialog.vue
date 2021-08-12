@@ -1,16 +1,16 @@
 <template>
   <template v-if="visible">
-    <div class="shaka-dialog-overlay"></div>
+    <div class="shaka-dialog-overlay" @click="onClickOverlay"></div>
     <div class="shaka-dialog-wrapper">
       <div class="shaka-dialog">
         <header>
-          提示框标题
-          <img src="src/assets/closed.svg" alt="" @click="toggleDialog" />
+          镖旗
+          <img src="src/assets/closed.svg" alt="" @click="close" />
         </header>
-        <main>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</main>
+        <main>hhhhhhhhhhhhhhhhhhhhh</main>
         <footer>
-          <shaka-button @click="toggleDialog">取消</shaka-button>
-          <shaka-button theme="normal" @click="toggleDialog">确定</shaka-button>
+          <shaka-button @click="cancel">取消</shaka-button>
+          <shaka-button theme="normal" @click="ok">确定</shaka-button>
         </footer>
       </div>
     </div>
@@ -23,17 +23,45 @@ export default {
   name: "ShakaDialog",
   components: { ShakaButton },
   props: {
-    visible: {  //支持 visible ，默认为 false
+    //支持 visible ，默认为 false
+    visible: {
       type: Boolean,
       default: false,
     },
+    // closeOnClickOverlay代表点击 黑色遮罩层 就关闭Dialog组件。默认值是true
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    // 支持 ok 和 cancel 函数传入
+    ok: {   
+      type: Function,
+    },
+    cancel: {
+      type: Function,
+    },
   },
-  setup(props, context){
-      const toggleDialog = () => {
-          context.emit('update:visible', !props.visible)
-      };
-      return {toggleDialog}
-  }
+  setup(props, context) {
+    const close = () => {
+      context.emit("update:visible", !props.visible);
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const ok = () => {
+      if (props.ok && props.ok() !== false) {
+        close();
+      }
+    };
+    const cancel = () => {
+      if (props.cancel?.() !== false) {
+        close();
+      }
+    };
+    return { close, onClickOverlay, ok, cancel };
+  },
 };
 </script>
 

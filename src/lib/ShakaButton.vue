@@ -33,11 +33,7 @@ export default {
     loading:{  // 支持加载
       type: Boolean,
       default: false
-    },
-    // color:{ //自定义颜色
-    //   type:String,
-    //   default: 'blue'
-    // }
+    }
   },
   setup(props) {
     const { size, theme,shape} = props;
@@ -48,9 +44,6 @@ export default {
         [`shaka-btn-shape-${shape}`]: shape,
       };
     });
-    // const colores = computed(()=>{
-    //   return "color:"+ color + ";"
-    // })
     const loadingColor = computed(()=>{
       let loadingsrc = "src/assets/loading.svg";
       if(theme!=="default"){
