@@ -1,5 +1,6 @@
 <template>
   <template v-if="visible">
+    <teleport to='body'> 
     <div class="shaka-dialog-overlay" @click="onClickOverlay"></div>
     <div class="shaka-dialog-wrapper">
       <div class="shaka-dialog">
@@ -16,6 +17,7 @@
         </footer>
       </div>
     </div>
+    </teleport>
   </template>
 </template>
 
