@@ -4,10 +4,12 @@
     <div class="shaka-dialog-wrapper">
       <div class="shaka-dialog">
         <header>
-          镖旗
+          {{title}}
           <img src="src/assets/closed.svg" alt="" @click="close" />
         </header>
-        <main>hhhhhhhhhhhhhhhhhhhhh</main>
+        <main>
+          <slot />
+        </main>
         <footer>
           <shaka-button @click="cancel">取消</shaka-button>
           <shaka-button theme="normal" @click="ok">确定</shaka-button>
@@ -40,6 +42,11 @@ export default {
     cancel: {
       type: Function,
     },
+    // 标题，内容通过插槽得到
+    title:{
+      type: String,
+      default:'标题'
+    }
   },
   setup(props, context) {
     const close = () => {
@@ -103,6 +110,7 @@ $shaka-dialog-border: #f0f0f0;
       > img {
         width: 20px;
         height: 20px;
+        margin-left: 10px;
       }
     }
     > main {

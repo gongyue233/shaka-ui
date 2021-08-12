@@ -6,8 +6,12 @@
     <shaka-dialog v-model:visible="dialog2" :closeOnClickOverlay="false">第二个对话框</shaka-dialog>
     <shaka-button @click="toggleDialog2">点击控制Dialog2</shaka-button>
 
-    <shaka-button @click="toggleDialog3">点击控制Dialog</shaka-button>
-    <shaka-dialog v-model:visible="dialog3" :ok="thrd" :cancel="forteg">第三个对话框</shaka-dialog>
+    <shaka-button @click="toggleDialog3">点击控制ddddddddddDialog</shaka-button>
+    <shaka-dialog v-model:visible="dialog3" :ok="thrd" :cancel="forteg" title="传哈的标题">
+      第三个对dddddddddd话
+      deded框hhhhhhhhhhhhhhhhhhhh
+      
+    </shaka-dialog>
     
 
 
