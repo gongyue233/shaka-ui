@@ -22,6 +22,9 @@
             <li>
               <router-link to="/doc/dialog">Dialog 对话框</router-link>
             </li>
+            <li>
+              <router-link to="/doc/tab">Tab 组件</router-link>
+            </li>
           </ul>
         </div>
       </div>
