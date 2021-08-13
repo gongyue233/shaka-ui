@@ -1,12 +1,19 @@
 <template>
-    <div>
-        Tab 组件
+    <div> 
+        {{title}}
+        <slot />
     </div>
 </template>
 
 <script lang="ts">
     export default {
-        name:'ShakaTab'
+        name:'ShakaTab',
+        props:{
+            title:{
+                type:String,
+                default:'标题'
+            }
+        }
     }
 </script>
 
