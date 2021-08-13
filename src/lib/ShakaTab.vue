@@ -1,6 +1,5 @@
 <template>
-    <div> 
-        {{title}}
+    <div class="shaka-tab"> 
         <slot />
     </div>
 </template>
