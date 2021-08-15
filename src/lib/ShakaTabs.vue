@@ -3,8 +3,10 @@
     <div class="shaka-tabs-nav">
       <div
         class="shaka-tabs-nav-item"
-        v-for="(t, index) in titles"
-        :key="index"
+        v-for="t in titles"
+        :key="t"
+        :class="{ selected: t === selected }"
+        @click="select(t)"
       >
         <span>{{ t }}</span>
       </div>
@@ -24,6 +26,12 @@
 import ShakaTab from "./ShakaTab.vue";
 export default {
   name: "ShakaTabs",
+  props: {
+    // 接受初始被选中的 标签
+    selected: {
+      type: String,
+    },
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.forEach((t) => {
@@ -35,9 +43,13 @@ export default {
     const titles = defaults.map((tab) => {
       return tab.props.title;
     });
+    const select = (title: String) => {
+      context.emit("update:selected", title);
+    };
     return {
       defaults,
       titles,
+      select,
     };
   },
 };
@@ -67,6 +79,9 @@ $shaka-tabs-span-h: 30px;
       cursor: pointer;
       > span {
         font-size: $shaka-tabs-font;
+      }
+      &.selected {
+        color: blue;
       }
     }
   }
