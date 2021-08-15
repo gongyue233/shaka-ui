@@ -1,13 +1,12 @@
 <template>
   <div class="shaka-tabs">
-    <hr />
     <div class="shaka-tabs-nav">
       <div
         class="shaka-tabs-nav-item"
         v-for="(t, index) in titles"
         :key="index"
       >
-        {{ t }}
+        <span>{{ t }}</span>
       </div>
     </div>
     <div class="shaka-tabs-content">
@@ -44,8 +43,36 @@ export default {
 };
 </script>
 <style lang="scss">
-.shaka-tabs{
-    border: 1px solid red;
-    
+$border-color: #d9d9d9;
+$color: #333;
+$shaka-tabs-font: 14px;
+$shaka-tabs-font2: 16px;
+$shaka-tabs-span-h: 30px;
+.shaka-tabs {
+  display: flex;
+  flex-direction: column;
+  color: $color;
+  border: 1px solid $border-color;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  > .shaka-tabs-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid $border-color;
+    > .shaka-tabs-nav-item {
+      padding: 10px 12px;
+      cursor: pointer;
+      > span {
+        font-size: $shaka-tabs-font;
+      }
+    }
+  }
+  > .shaka-tabs-content {
+    padding: 24px 20px;
+    font-size: $shaka-tabs-font2;
+  }
 }
 </style>

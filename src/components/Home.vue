@@ -1,6 +1,6 @@
 <template>
   <Topnav />
-  <div class="banner">
+  <div class="shaka-home-banner">
     <h1>Shaka Design</h1>
     <h2>以 Vue3 制作的 UI 框架</h2>
     <ul>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner{
+.shaka-home-banner{
   display: flex;
   flex-direction: column;
   justify-content: center;
