@@ -3,10 +3,10 @@
     ShakaTabs的 Demo 页面
     <hr />
     <shaka-tabs class="tabs-demo" v-model:selected="selectedName">
-      <shaka-tab title="导航1"></shaka-tab>
-      <shaka-tab title="导航2"></shaka-tab>
+      <shaka-tab title="导航1">内容1</shaka-tab>
+      <shaka-tab title="导航2">内容2</shaka-tab>
       <shaka-tab title="导航3">内容3</shaka-tab>
-      <shaka-tab title="导航4"></shaka-tab>
+      <shaka-tab title="导航4">内容4</shaka-tab>
     </shaka-tabs>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 .shaka-demo-tabs {
   .tabs-demo {
-    width: 360px;
+    width: 400px;
   }
 }
 </style>

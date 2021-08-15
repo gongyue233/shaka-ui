@@ -17,6 +17,7 @@
         v-for="(tab, index) in defaults"
         :is="tab"
         :key="index"
+        :class="{selected: tab.props.title === selected}"
       />
     </div>
   </div>
@@ -59,6 +60,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $shaka-tabs-font: 14px;
 $shaka-tabs-font2: 16px;
+$shaka-tabs-color:#1687a7;
 $shaka-tabs-span-h: 30px;
 .shaka-tabs {
   display: flex;
@@ -75,19 +77,25 @@ $shaka-tabs-span-h: 30px;
     flex-wrap: nowrap;
     border-bottom: 1px solid $border-color;
     > .shaka-tabs-nav-item {
-      padding: 10px 12px;
+      padding: 12px 12px;
       cursor: pointer;
       > span {
         font-size: $shaka-tabs-font;
       }
       &.selected {
-        color: blue;
+        color: $shaka-tabs-color;
       }
     }
   }
   > .shaka-tabs-content {
-    padding: 24px 20px;
+    padding: 20px 20px;
     font-size: $shaka-tabs-font2;
+    > .shaka-tabs-content-item{
+      display: none;
+      &.selected{
+        display: block;
+      }
+    }
   }
 }
 </style>
