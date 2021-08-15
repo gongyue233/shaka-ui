@@ -10,6 +10,7 @@
       >
         <span>{{ t }}</span>
       </div>
+      <div class="shaka-tabs-nav-indicator"></div>
     </div>
     <div class="shaka-tabs-content">
       <component
@@ -17,7 +18,7 @@
         v-for="(tab, index) in defaults"
         :is="tab"
         :key="index"
-        :class="{selected: tab.props.title === selected}"
+        :class="{ selected: tab.props.title === selected }"
       />
     </div>
   </div>
@@ -60,7 +61,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $shaka-tabs-font: 14px;
 $shaka-tabs-font2: 16px;
-$shaka-tabs-color:#1687a7;
+$shaka-tabs-color: #1687a7;
 $shaka-tabs-span-h: 30px;
 .shaka-tabs {
   display: flex;
@@ -76,6 +77,7 @@ $shaka-tabs-span-h: 30px;
     flex-direction: row;
     flex-wrap: nowrap;
     border-bottom: 1px solid $border-color;
+    position: relative;
     > .shaka-tabs-nav-item {
       padding: 12px 12px;
       cursor: pointer;
@@ -86,13 +88,21 @@ $shaka-tabs-span-h: 30px;
         color: $shaka-tabs-color;
       }
     }
+    > .shaka-tabs-nav-indicator {
+      position: absolute;
+      height: 3px;
+      background-color: $shaka-tabs-color;
+      bottom: -1px;
+      width: 100px;
+      left: 0;
+    }
   }
   > .shaka-tabs-content {
     padding: 20px 20px;
     font-size: $shaka-tabs-font2;
-    > .shaka-tabs-content-item{
+    > .shaka-tabs-content-item {
       display: none;
-      &.selected{
+      &.selected {
         display: block;
       }
     }
