@@ -3,14 +3,19 @@
     <div class="shaka-tabs-nav">
       <div
         class="shaka-tabs-nav-item"
-        v-for="t in titles"
-        :key="t"
+        v-for="(t, index) in titles"
+        :key="index"
         :class="{ selected: t === selected }"
+        :ref="
+          (el) => {
+            if (el) navItems[index] = el; //el表示当前的元素
+          }
+        "
         @click="select(t)"
       >
         <span>{{ t }}</span>
       </div>
-      <div class="shaka-tabs-nav-indicator"></div>
+      <div class="shaka-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="shaka-tabs-content">
       <component
@@ -26,6 +31,7 @@
 
 <script lang="ts">
 import ShakaTab from "./ShakaTab.vue";
+import { onMounted,ref } from "vue";
 export default {
   name: "ShakaTabs",
   props: {
@@ -35,12 +41,30 @@ export default {
     },
   },
   setup(props, context) {
+    console.log('setup没问题')
     const defaults = context.slots.default();
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>();
+    onMounted(() => {
+      console.log({ ...navItems.value }); //这句话可以知道navItems的容器数组
+      const divs = navItems.value;
+      // 删选出类名里包括 selected 的div
+      console.log('indicator容器')
+      console.log(indicator.value)
+      const result = divs.filter((div) =>
+        div.classList.contains("selected")
+      )[0];
+      //或者使用find，但是find有的时候不兼容
+      //获得被选中的标签名宽度
+      const { width } = result.getBoundingClientRect();
+      console.log(width)
+      indicator.value.style.width = width + "px";
+    });
     defaults.forEach((t) => {
       if (t.type !== ShakaTab) {
         // ShakaTabs检查子元素类型
         throw new Error("ShakaTabs 的子标签必须是 ShakaTab");
-      }
+      } 
     });
     const titles = defaults.map((tab) => {
       return tab.props.title;
@@ -52,6 +76,8 @@ export default {
       defaults,
       titles,
       select,
+      navItems,
+      indicator
     };
   },
 };
@@ -80,6 +106,7 @@ $shaka-tabs-span-h: 30px;
     position: relative;
     > .shaka-tabs-nav-item {
       padding: 12px 12px;
+      border: 1px solid red;
       cursor: pointer;
       > span {
         font-size: $shaka-tabs-font;
@@ -93,8 +120,7 @@ $shaka-tabs-span-h: 30px;
       height: 3px;
       background-color: $shaka-tabs-color;
       bottom: -1px;
-      width: 100px;
-      left: 0;
+      left: 0px;
     }
   }
   > .shaka-tabs-content {
