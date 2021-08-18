@@ -4,7 +4,7 @@
     <hr />
     <shaka-tabs class="tabs-demo" v-model:selected="selectedName">
       <shaka-tab title="导航1">内容1</shaka-tab>
-      <shaka-tab title="导航2">内容2</shaka-tab>
+      <shaka-tab title="导航2sss">内容2ss</shaka-tab>
       <shaka-tab title="导航3">内容3</shaka-tab>
       <shaka-tab title="导航4">内容4</shaka-tab>
     </shaka-tabs>

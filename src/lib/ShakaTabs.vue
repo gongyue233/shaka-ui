@@ -1,6 +1,6 @@
 <template>
   <div class="shaka-tabs">
-    <div class="shaka-tabs-nav">
+    <div class="shaka-tabs-nav" ref="container">
       <div
         class="shaka-tabs-nav-item"
         v-for="(t, index) in titles"
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import ShakaTab from "./ShakaTab.vue";
-import { onMounted,ref } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
 export default {
   name: "ShakaTabs",
   props: {
@@ -41,30 +41,48 @@ export default {
     },
   },
   setup(props, context) {
-    console.log('setup没问题')
+    console.log("setup没问题");
     const defaults = context.slots.default();
     const navItems = ref<HTMLDivElement[]>([]);
-    const indicator = ref<HTMLDivElement>();
-    onMounted(() => {
-      console.log({ ...navItems.value }); //这句话可以知道navItems的容器数组
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    const makeIndicator = (init: Boolean) => {
       const divs = navItems.value;
       // 删选出类名里包括 selected 的div
-      console.log('indicator容器')
-      console.log(indicator.value)
+      console.log("indicator容器");
+      console.log(indicator.value);
+      //删选出被选中的标签——result，
+      //或者使用find，但是find有的时候不兼容
       const result = divs.filter((div) =>
         div.classList.contains("selected")
       )[0];
-      //或者使用find，但是find有的时候不兼容
       //获得被选中的标签名宽度
       const { width } = result.getBoundingClientRect();
-      console.log(width)
       indicator.value.style.width = width + "px";
+
+      //动态设置 indicator
+      const left1 = container.value.getBoundingClientRect().left;
+      const left2 = result.getBoundingClientRect().left;
+      indicator.value.style.left = left2 - left1 + "px";
+
+      //设置indicator的动画时间
+      if (init) {
+        indicator.value.style.transition = "0ms";
+      } else {
+        indicator.value.style.transition = "250ms";
+      }
+    };
+    onMounted(() => {
+      makeIndicator(true);
+    });
+    onUpdated(() => {
+      makeIndicator(false);
     });
     defaults.forEach((t) => {
       if (t.type !== ShakaTab) {
         // ShakaTabs检查子元素类型
         throw new Error("ShakaTabs 的子标签必须是 ShakaTab");
-      } 
+      }
     });
     const titles = defaults.map((tab) => {
       return tab.props.title;
@@ -77,7 +95,8 @@ export default {
       titles,
       select,
       navItems,
-      indicator
+      indicator,
+      container,
     };
   },
 };
@@ -106,7 +125,6 @@ $shaka-tabs-span-h: 30px;
     position: relative;
     > .shaka-tabs-nav-item {
       padding: 12px 12px;
-      border: 1px solid red;
       cursor: pointer;
       > span {
         font-size: $shaka-tabs-font;
