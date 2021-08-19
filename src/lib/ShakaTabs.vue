@@ -8,7 +8,8 @@
         :class="{ selected: t === selected }"
         :ref="
           (el) => {
-            if (el) navItems[index] = el; //el表示当前的元素
+            //el表示当前的元素
+            if (t === selected) selectedItem = el;
           }
         "
         @click="select(t)"
@@ -41,30 +42,20 @@ export default {
     },
   },
   setup(props, context) {
-    console.log("setup没问题");
     const defaults = context.slots.default();
-    const navItems = ref<HTMLDivElement[]>([]);
+    //被选中的标签 selectedItem
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
+
     const makeIndicator = (init: Boolean) => {
-      const divs = navItems.value;
-      // 删选出类名里包括 selected 的div
-      console.log("indicator容器");
-      console.log(indicator.value);
-      //删选出被选中的标签——result，
-      //或者使用find，但是find有的时候不兼容
-      const result = divs.filter((div) =>
-        div.classList.contains("selected")
-      )[0];
       //获得被选中的标签名宽度
-      const { width } = result.getBoundingClientRect();
+      const { width } = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + "px";
-
-      //动态设置 indicator
+      //动态设置 indicator 的位置
       const left1 = container.value.getBoundingClientRect().left;
-      const left2 = result.getBoundingClientRect().left;
+      const left2 = selectedItem.value.getBoundingClientRect().left;
       indicator.value.style.left = left2 - left1 + "px";
-
       //设置indicator的动画时间
       if (init) {
         indicator.value.style.transition = "0ms";
@@ -72,15 +63,17 @@ export default {
         indicator.value.style.transition = "250ms";
       }
     };
+
     onMounted(() => {
       makeIndicator(true);
     });
     onUpdated(() => {
       makeIndicator(false);
     });
+
+    // 检查字子标签类型是否是ShakaTab
     defaults.forEach((t) => {
       if (t.type !== ShakaTab) {
-        // ShakaTabs检查子元素类型
         throw new Error("ShakaTabs 的子标签必须是 ShakaTab");
       }
     });
@@ -94,7 +87,7 @@ export default {
       defaults,
       titles,
       select,
-      navItems,
+      selectedItem,
       indicator,
       container,
     };
