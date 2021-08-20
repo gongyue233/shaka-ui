@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 $shaka-sw-h: 30px;
 $shaka-sw-h2: 28px;
-$shaka-sw-active-color: #1687a7;
+$shaka-sw-active-color: #036c86;
 $shaka-sw-inactive-color: #f5f5f5;
 .shaka-switch-button {
   height: $shaka-sw-h;

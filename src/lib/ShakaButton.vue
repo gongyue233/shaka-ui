@@ -66,7 +66,7 @@ $shaka-btn-border-default:#969799;
 $shaka-btn-bclr-default:#fff;
 $shaka-btn-bclr-danger:#ee0a24;
 $shaka-btn-bclr-warn:#ff976a;
-$shaka-btn-bclr-norm: #1687a7;
+$shaka-btn-bclr-norm: #036c86;
 
 $shaka-btn-border: 1px;
 $shaka-btn-border-radius:50%;

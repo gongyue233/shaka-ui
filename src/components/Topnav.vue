@@ -24,7 +24,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shaka-topnav-bg:#1687a7;
+$shaka-topnav-bg:#036c86;
+
 .topnav {
   display: flex;
   flex-wrap: nowrap;
@@ -33,7 +34,7 @@ $shaka-topnav-bg:#1687a7;
   justify-content: space-between;
   padding: 18px 24px;
   background-color: $shaka-topnav-bg;
-  color: #f6f5f5;
+  color: #f5f5f5;
   img{
     display: none;    
   }

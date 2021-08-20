@@ -99,7 +99,8 @@ $border-color: #d9d9d9;
 $color: #333;
 $shaka-tabs-font: 14px;
 $shaka-tabs-font2: 16px;
-$shaka-tabs-color: #1687a7;
+$shaka-tabs-color: #036c86;
+$shaka-tabs-color-h:#35bdbd;
 $shaka-tabs-span-h: 30px;
 .shaka-tabs {
   display: flex;

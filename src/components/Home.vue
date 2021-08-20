@@ -1,5 +1,4 @@
 <template>
-<div class="shaka-home-bg">
   <Topnav />
   <div class="shaka-home-banner">
     <h1>Shaka Design</h1>
@@ -9,7 +8,7 @@
       <li>GitHub</li>
     </ul>
   </div>
-</div>
+
 </template>
 
 <script lang="ts">
@@ -22,9 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shaka-home-bg:#1687a7;
-$shaka-home-bg-q:#f5f5f5;
-
+$shaka-home-bg:#036c86;
+$shaka-home-bg-light:#35bdbd;
 .shaka-home-banner{
   display: flex;
   flex-direction: column;
@@ -53,8 +51,8 @@ $shaka-home-bg-q:#f5f5f5;
       font-size: 16px;
       margin: 18px;
       font-weight: bold;
-      color: $shaka-home-bg;
       border: 1px solid $shaka-home-bg;
+      color: $shaka-home-bg;
       border-radius: $h/2;
     }
   }

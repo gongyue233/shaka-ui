@@ -50,7 +50,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+$shaka-doc-color:#036c86;
 .doc-all {
   display: flex;
   flex-direction: column;
@@ -66,7 +67,7 @@ export default {
       max-width: 260px;
       overflow-y: auto;
       > .dov-nav-item {
-        color: #1687a7;
+        color: $shaka-doc-color;
         background-color: #fff;
         display: flex;
         flex-direction: column;
