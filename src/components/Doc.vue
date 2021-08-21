@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $shaka-doc-color:#036c86;
 .doc-all {
   display: flex;

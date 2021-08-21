@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 .shaka-demo-tabs {
   .tabs-demo {
-    width: 400px;
+    width: 300px;
   }
 }
 </style>
