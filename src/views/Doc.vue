@@ -6,8 +6,15 @@
         <div class="dov-nav-item">
           <span class="sort-name">开发指南</span>
           <ul class="items">
-            <li>介绍</li>
-            <li>安装</li>
+            <li>
+              <router-link to="/doc/intro">介绍</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/install">安装</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/get-start">开始使用</router-link>
+            </li>
           </ul>
         </div>
         <div class="dov-nav-item">
@@ -51,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shaka-doc-color:#036c86;
+$shaka-doc-color: #036c86;
 .doc-all {
   display: flex;
   flex-direction: column;

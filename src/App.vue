@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import Home from "./views/Home.vue";
 import { ref, provide } from "vue";
 import {router} from './router';
 export default {
