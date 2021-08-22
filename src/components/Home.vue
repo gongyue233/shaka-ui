@@ -7,26 +7,28 @@
       <router-link to="/doc">文档</router-link>
       <router-link to="/">GitHub</router-link>
     </ul>
-    <ul class="shaka-home-features">
-       <li>
-        <svg class="icon">
-          <use xlink:href="#icon-vue"></use>
-        </svg>
-        <p>Shaka 组件库 采用 Vue 3 来制作组件</p>
-      </li>
-      <li>
-        <svg class="icon">
-          <use xlink:href="#icon-ts"></use>
-        </svg>
-        <p>Shaka 组件库 源代码采用 TypeScript 书写（非严格审查）</p>
-      </li>
-      <li>
-        <svg class="icon">
-          <use xlink:href="#icon-shiyong"></use>
-        </svg>
-        <p>Shaka 组件库 简单易用，阅读文档便可快速上手 </p>
-      </li>
-    </ul>
+    <div class="shaka-home-features">
+      <ul>
+        <li>
+          <svg class="icon">
+            <use xlink:href="#icon-vue"></use>
+          </svg>
+          <p>Shaka 组件库 采用 Vue 3 来制作组件</p>
+        </li>
+        <li>
+          <svg class="icon">
+            <use xlink:href="#icon-ts"></use>
+          </svg>
+          <p>Shaka 组件库 源代码采用 TypeScript 书写（非严格审查）</p>
+        </li>
+        <li>
+          <svg class="icon">
+            <use xlink:href="#icon-shiyong"></use>
+          </svg>
+          <p>Shaka 组件库 简单易用，阅读文档便可快速上手</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -41,6 +43,8 @@ export default {
 <style lang="scss" scoped>
 $shaka-home-bg: #036c86;
 $shaka-home-bg-light: #35bdbd;
+$shaka-home-intro: 300px;
+$shaka-home-intro-md: 2 * $shaka-home-intro + 20px;
 .shaka-home-banner {
   display: flex;
   flex-direction: column;
@@ -48,10 +52,11 @@ $shaka-home-bg-light: #35bdbd;
   align-items: center;
   font-weight: normal;
   > h1 {
-    padding: 80px 0;
+    padding-top: 100px;
   }
   > h2 {
-    padding: 10px 0;
+    padding-bottom: 10px;
+    padding-top: 60px;
   }
   > .shaka-home-link {
     padding: 24px 0;
@@ -75,28 +80,43 @@ $shaka-home-bg-light: #35bdbd;
     }
   }
   > .shaka-home-features {
-    display: flex;
-    flex-wrap: wrap;
-    > li {
-      width: 300px;
-      display: grid;
-      justify-content: start;
-      grid-template-areas:
-        "icon text";
-      margin: 16px 0;
-      padding: 0 32px;
-      > .icon {
-        grid-area: icon;
-        width: 64px;
-        height: 64px;
-        margin-right: 16px;
+    width: 400px;
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      > li {
+        width: $shaka-home-intro;
+        display: grid;
+        justify-content: start;
+        grid-template-areas: "icon text";
+        margin: 16px 0;
+        padding: 0 32px;
+        > .icon {
+          grid-area: icon;
+          width: 64px;
+          height: 64px;
+          margin-right: 16px;
+        }
+        > p {
+          align-self: center;
+          font-size: 16px;
+          grid-area: text;
+          text-align: center;
+        }
       }
-      > p {
-        align-self: center;
-        font-size: 16px;
-        grid-area: text;
-        text-align: center;
+    }
+    @media (min-width: 800px) and (max-width: 1200px) {
+      width: $shaka-home-intro-md;
+      > ul {
+        justify-content: space-between;
       }
+    }
+    @media (min-width: 1200px) {
+      width: 1200px;
+    }
+    @media (max-width: 800px) {
+      width: 400px;
     }
   }
 }
