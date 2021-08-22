@@ -70,8 +70,7 @@ $shaka-doc-color: #036c86;
     > .doc-nav {
       flex-shrink: 0;
       padding: 24px 0px 0px 30px;
-      min-width: 260px;
-      max-width: 260px;
+      width: 260px;
       overflow-y: auto;
       > .dov-nav-item {
         color: $shaka-doc-color;
@@ -87,6 +86,9 @@ $shaka-doc-color: #036c86;
           font-size: 16px;
           margin: 8px 0px;
           padding: 8px 0px;
+          :hover {
+            border-bottom: 1.5px solid $shaka-doc-color;
+          }
         }
       }
     }
