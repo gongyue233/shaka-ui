@@ -59,6 +59,8 @@ export default {
 
 <style lang="scss" scoped>
 $shaka-doc-color: #036c86;
+$shaka-doc-color-lg: #35bdbd;
+$shaka-doc-font-color: #304455;
 .doc-all {
   display: flex;
   flex-direction: column;
@@ -73,7 +75,7 @@ $shaka-doc-color: #036c86;
       width: 260px;
       overflow-y: auto;
       > .dov-nav-item {
-        color: $shaka-doc-color;
+        color: $shaka-doc-font-color;
         background-color: #fff;
         display: flex;
         flex-direction: column;
@@ -86,8 +88,15 @@ $shaka-doc-color: #036c86;
           font-size: 16px;
           margin: 8px 0px;
           padding: 8px 0px;
-          :hover {
-            border-bottom: 1.5px solid $shaka-doc-color;
+          > a {
+            &.router-link-active {
+              color: $shaka-doc-color;
+              font-weight: bold;
+            }
+            &:hover {
+              color: $shaka-doc-color;
+              font-weight: bold;
+            }
           }
         }
       }
