@@ -4,7 +4,7 @@ import "./index.scss";
 import "./lib/shaka.scss";
 import { createApp } from "vue";
 import App from "./App.vue";
-
+import 'github-markdown-css';
 import { router } from "./router";
 
 
