@@ -1,6 +1,9 @@
 <template>
   <div class="topnav">
-    <img src="../assets/menu.png" alt="" @click="toggleAside">
+    <!-- <img src="../assets/menu.png" alt="" @click="toggleAside" /> -->
+    <svg class="icon menu-logo" @click="toggleAside">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
     <span class="logo" @click="toggleAside">Shaka</span>
     <ul class="menu">
       <li>GitHub</li>
@@ -24,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shaka-topnav-bg:#036c86;
+$shaka-topnav-bg: #036c86;
 
 .topnav {
   display: flex;
@@ -35,36 +38,36 @@ $shaka-topnav-bg:#036c86;
   padding: 18px 24px;
   background-color: $shaka-topnav-bg;
   color: #f5f5f5;
-  img{
-    display: none;    
+  > .menu-logo {
+    display: none;
   }
-  .logo {
+  > .logo {
     font-size: 22px;
     padding-left: 24px;
   }
-  .menu {
+  > .menu {
     font-size: 18px;
     display: flex;
     align-items: flex-end;
+    > li {
+      padding: 0px 12px;
+    }
   }
-  .menu > li {
-    padding: 0px 12px;
-  }
-  @media (max-width:500px) {
-    >.logo{
+
+  @media (max-width: 500px) {
+    > .logo {
       margin: 0 auto;
       padding: 0px;
       transform: translateX(-15px);
     }
-    > .menu{
+    > .menu {
       display: none;
     }
-    img{
-      display:block;
+    > .menu-logo {
+      display: block;
       width: 30px;
       height: 30px;
     }
   }
-  
 }
 </style>

@@ -1,22 +1,24 @@
 <template>
   <template v-if="visible">
-    <teleport to='body'> 
-    <div class="shaka-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="shaka-dialog-wrapper">
-      <div class="shaka-dialog">
-        <header>
-          {{title}}
-          <img src="src/assets/closed.svg" alt="" @click="close" />
-        </header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <shaka-button @click="cancel">取消</shaka-button>
-          <shaka-button theme="normal" @click="ok">确定</shaka-button>
-        </footer>
+    <teleport to="body">
+      <div class="shaka-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="shaka-dialog-wrapper">
+        <div class="shaka-dialog">
+          <header>
+            {{ title }}
+            <svg class="icon closed" @click="close">
+              <use xlink:href="#icon-closed"></use>
+            </svg>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <shaka-button @click="cancel">取消</shaka-button>
+            <shaka-button theme="normal" @click="ok">确定</shaka-button>
+          </footer>
+        </div>
       </div>
-    </div>
     </teleport>
   </template>
 </template>
@@ -38,17 +40,17 @@ export default {
       default: true,
     },
     // 支持 ok 和 cancel 函数传入
-    ok: {   
+    ok: {
       type: Function,
     },
     cancel: {
       type: Function,
     },
     // 标题，内容通过插槽得到
-    title:{
+    title: {
       type: String,
-      default:'标题'
-    }
+      default: "标题",
+    },
   },
   setup(props, context) {
     const close = () => {
@@ -109,7 +111,7 @@ $shaka-dialog-border: #f0f0f0;
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      > img {
+      > .closed {
         width: 20px;
         height: 20px;
         margin-left: 10px;
