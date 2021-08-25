@@ -1,22 +1,40 @@
 <template>
-<div>
-  <h1>ButtonDemo</h1>
-  <shaka-button size="large" theme="default">提交按钮</shaka-button>
-  <shaka-button :loading="true" theme="warn">只有loading</shaka-button>
-  <shaka-button :disabled="true">disabled为 true</shaka-button>
-  <shaka-button :disabled="false" size="large" shape="round" theme="normal">disabfffled为 false</shaka-button>
-  <shaka-button disabled shape="round">只有disabled</shaka-button>
-</div>
+  <div class="demo">
+    <BtnSize />
+    <div class="code">
+      <pre
+        class="language-html"
+        v-html="
+          Prism.highlight(BtnSize.__sourceCode, Prism.languages.html, 'html')
+        "
+      ></pre>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import ShakaButton from '../../lib/ShakaButton.vue';
+import "prismjs";
+import "prismjs/themes/prism.css";
+import BtnSize from "./BtnDemo/BtnSize.vue";
 export default {
-  components: { ShakaButton },
-  name: "ButtonDemo",
-  comments:{ShakaButton},
+  name: "SwitchDemo",
+  components: { BtnSize },
+  setup() {
+    const Prism = (window as any).Prism;
+    return {
+      BtnSize, //必须 return 后才可以在 template 内展示
+      Prism,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+> .demo {
+  border: 1px solid gray;
+  padding: 20px;
+  > .code {
+    border: 1px solid red;
+  }
+}
 </style>
