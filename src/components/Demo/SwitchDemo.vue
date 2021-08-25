@@ -2,22 +2,22 @@
   <div class="switch-demo">
     <h1>Switch 组件示例</h1>
     <div class="demo">
-      <switch-1 />
+        <sw-bool />
       <div class="code">
-        <pre>{{ Switch1.__sourceCode }}</pre>
+        <pre>{{ SwBool.__sourceCode }}</pre>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Switch1 from "../Demo/Switch1.vue";
+import SwBool from "./SwDemo/SwBool.vue";
 export default {
   name: "SwitchDemo",
-  components: { Switch1 },
+  components: { SwBool, SwBool },
   setup() {
     return {
-      Switch1, //必须 return 后才可以在 template 内展示
+      SwBool, //必须 return 后才可以在 template 内展示
     };
   },
 };
