@@ -2,22 +2,31 @@
   <div class="switch-demo">
     <h1>Switch 组件示例</h1>
     <div class="demo">
-        <sw-bool />
+      <sw-bool />
       <div class="code">
-        <pre>{{ SwBool.__sourceCode }}</pre>
+        <pre
+          class="language-html"
+          v-html="
+            Prism.highlight(SwBool.__sourceCode, Prism.languages.html, 'html')
+          "
+        ></pre>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import "prismjs";
+import "prismjs/themes/prism.css";
 import SwBool from "./SwDemo/SwBool.vue";
 export default {
   name: "SwitchDemo",
-  components: { SwBool, SwBool },
+  components: { SwBool },
   setup() {
+    const Prism = (window as any).Prism;
     return {
       SwBool, //必须 return 后才可以在 template 内展示
+      Prism,
     };
   },
 };
