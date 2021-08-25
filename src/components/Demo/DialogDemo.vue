@@ -36,23 +36,18 @@ export default {
     const dialog1 = ref(false);
     const toggleDialog = () => {
       dialog1.value = !dialog1.value;
-      console.log("toggleDialog函数被执行了");
     };
     const dialog2 = ref(false);
     const toggleDialog2 = () => {
       dialog2.value = !dialog2.value;
-      console.log("toggleDialog2的visible值");
     };
     const dialog3 = ref(false);
     const toggleDialog3 = () => {
       dialog3.value = !dialog3.value;
-      console.log("toggleDialog3的visible值");
     };
     const thrd = () => {
-      console.log("执行了第三个对话框传入的OK");
     };
     const forteg = () => {
-      console.log("传入了第四个对话框的cancel");
       return false;
     };
     const showOpenDialog3 = () => {

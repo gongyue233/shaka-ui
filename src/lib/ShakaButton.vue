@@ -58,7 +58,6 @@ export default {
       let loadingsrc = "loading";
       if (theme !== "default") {
         loadingsrc = "loading-light";
-        console.log("非默认值");
       }
       return loadingsrc;
     });
