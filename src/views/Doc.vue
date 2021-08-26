@@ -66,14 +66,23 @@ $shaka-doc-font-color: #304455;
   flex-direction: column;
   height: 100vh;
   > .doc-main {
+    flex-grow: 1;
     display: flex;
     flex-direction: row;
     overflow-y: auto;
+    position: relative;
     > .doc-nav {
+      border-right: 1px solid gray;
+      background-color: #fff;
       flex-shrink: 0;
       padding: 24px 0px 0px 30px;
       width: 260px;
       overflow-y: auto;
+      @media (max-width: 800px) {
+        position: absolute;
+        z-index: 10;
+        border-bottom: 1px solid gray;
+      }
       > .dov-nav-item {
         color: $shaka-doc-font-color;
         background-color: #fff;
@@ -104,7 +113,7 @@ $shaka-doc-font-color: #304455;
     > .doc-content {
       flex-grow: 1;
       overflow-y: auto;
-      padding: 20px 40px 20px 20px;
+      padding: 20px 40px 20px 40px;
     }
   }
 }
