@@ -1,17 +1,19 @@
 <template>
-  <button
-    class="shaka-btn"
-    :class="classes"
-    :disabled="disabled"
-    v-bind="$attrs"
-  >
-    <span v-if="loading" class="shaka-btn-loading">
-      <svg class="icon load-logo">
-        <use :xlink:href="`#icon-${loadingColor}`"></use>
-      </svg>
-    </span>
-    <slot />
-  </button>
+  <div>
+    <button
+      class="shaka-btn"
+      :class="classes"
+      :disabled="disabled"
+      v-bind="$attrs"
+    >
+      <span v-if="loading" class="shaka-btn-loading">
+        <svg class="icon load-logo">
+          <use :xlink:href="`#icon-${loadingColor}`"></use>
+        </svg>
+      </span>
+      <slot />
+    </button>
+  </div>
 </template>
 
 <script lang="ts">

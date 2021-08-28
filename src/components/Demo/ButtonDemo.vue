@@ -1,5 +1,5 @@
 <template>
-  <Demo2 :codeComp="BtnTheme" />
+  <Demo2 :codeComp="BtnTheme" :description="des" />
 </template>
 
 <script lang="ts">
@@ -8,8 +8,10 @@ import BtnTheme from "./BtnDemo/BtnTheme.vue";
 export default {
   components: { Demo2, BtnTheme },
   setup() {
+    const des = "按钮类型支持 warn、danger、normal、default，默认为 default 。"
     return {
-      BtnTheme
+      BtnTheme,
+      des
     };
   },
 };

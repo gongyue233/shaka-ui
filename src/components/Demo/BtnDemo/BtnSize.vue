@@ -1,5 +1,5 @@
 <demo>
-BtnSize
+按钮大小  
 </demo>
 <template>
   <div>

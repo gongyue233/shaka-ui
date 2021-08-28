@@ -1,5 +1,5 @@
 <demo>
-ShakaButton 组件支持 theme
+按钮类型
 </demo>
 <template>
   <div>

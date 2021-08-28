@@ -73,7 +73,8 @@ export default {
 
     // 检查字子标签类型是否是ShakaTab
     defaults.forEach((t) => {
-      if (t.type !== ShakaTab) {
+      //@ts-ignore
+      if (t.type.name !== ShakaTab.name) {
         throw new Error("ShakaTabs 的子标签必须是 ShakaTab");
       }
     });
