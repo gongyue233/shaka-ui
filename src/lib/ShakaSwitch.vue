@@ -3,6 +3,7 @@
     <button
       class="shaka-switch-button"
       :class="{ 'shaka-switch-checked': checked }"
+      :disabled="disabled"
       @click="toggleSwitch"
     >
       <span class="shaka-switch-span shaka-switch-checked"></span>
@@ -19,6 +20,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled:{
+      type:Boolean,
+      default:false
+    }
   },
   setup(props, context) {
     const toggleSwitch = () => {
@@ -51,6 +56,10 @@ $shaka-sw-inactive-color: #f5f5f5;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: $shaka-sw-h2/2;
     transition: all 300ms;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
 }
 .shaka-switch-button.shaka-switch-checked {

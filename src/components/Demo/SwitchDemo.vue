@@ -1,47 +1,28 @@
 <template>
-  <div class="switch-demo">
-    <h1>Switch 组件示例</h1>
-    <div class="demo">
-      <sw-bool />
-      <div class="code">
-        <pre
-          class="language-html"
-          v-html="
-            Prism.highlight(SwBool.__sourceCode, Prism.languages.html, 'html')
-          "
-        ></pre>
-      </div>
-    </div>
-  </div>
+<h1>Switch 开关</h1>
+<demo-2 :codeComp="SwBool" :description="description['checked']" />
+<demo-2 :codeComp="SwDisable" :description="description['disable']"  />
 </template>
 
-<script lang="ts">
-import "prismjs";
-import "prismjs/themes/prism.css";
+<script>
+import Demo2 from "../Demo2.vue";
 import SwBool from "./SwDemo/SwBool.vue";
-export default {
-  name: "SwitchDemo",
-  components: { SwBool },
-  setup() {
-    const Prism = (window as any).Prism;
-    return {
-      SwBool, //必须 return 后才可以在 template 内展示
-      Prism,
-    };
-  },
-};
+import SwDisable from "./SwDemo/SwDisable.vue";
+  export default {
+    components:{
+      Demo2,SwBool,SwDisable
+    },
+    setup(){
+      const description = {
+        checked: "通过 v-model 绑定开关的选中状态，true 表示开，false 表示关，默认是 false 。",
+        disable:"通过 disabled 属性来禁用开关，禁用状态下开关不可点击。"
+      }
+      return {
+        Demo2,SwBool,SwDisable,
+        description
+      }
+    }
+    
+  }
 </script>
 
-<style lang="scss" scoped>
-.switch-demo {
-  border: 1px solid red;
-  padding: 20px;
-  > .demo {
-    border: 1px solid gray;
-    padding: 20px;
-    > .code {
-      border: 1px solid red;
-    }
-  }
-}
-</style>
