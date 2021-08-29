@@ -8,7 +8,6 @@
       >第二个对话框</shaka-dialog
     >
     <shaka-button @click="toggleDialog2">点击控制Dialog2</shaka-button>
-
     <shaka-button @click="toggleDialog3">点击控制ddddddddddDialog</shaka-button>
     <shaka-dialog
       v-model:visible="dialog3"
@@ -33,7 +32,7 @@ import openShakaDialog from "../../lib/openShakaDialog";
 export default {
   components: { ShakaDialog, ShakaButton },
   setup() {
-    const dialog1 = ref(false);
+    const dialog1 = ref(true);
     const toggleDialog = () => {
       dialog1.value = !dialog1.value;
     };

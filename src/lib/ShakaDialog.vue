@@ -11,7 +11,7 @@
             </svg>
           </header>
           <main>
-            <slot name="content" />
+            <slot/>
           </main>
           <footer>
             <shaka-button @click="cancel">取消</shaka-button>
@@ -46,7 +46,7 @@ export default {
     cancel: {
       type: Function,
     },
-    // 标题，内容通过插槽得到
+    // 标题通过 props 得到，内容通过插槽得到
     title: {
       type: String,
       default: "标题",
@@ -119,7 +119,7 @@ $shaka-dialog-border: #f0f0f0;
     }
     > main {
       word-wrap: break-word;
-      font-size: 14px;
+      font-size: 16px;
       padding: 10px 26px 26px 26px;
       border-bottom: 1px solid $shaka-dialog-border;
       text-align: left;

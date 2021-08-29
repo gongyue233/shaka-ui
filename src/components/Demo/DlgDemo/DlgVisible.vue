@@ -1,17 +1,31 @@
 <demo>
-
+基础用法
 </demo>
 <template>
-    <div>
-
-    </div>
+  <div>
+    <shaka-button @click="toggle">点击打开Dialog</shaka-button>
+    <shaka-dialog v-model:visible="visible" title="标题内容" >
+      对话框内容
+      </shaka-dialog>
+  </div>
 </template>
 
 <script>
-import ShakaDialog from '../../../lib/ShakaDialog.vue';
-    export default {
-        components:{
-            ShakaDialog
-        }
-    }
+import ShakaDialog from "../../../lib/ShakaDialog.vue";
+import ShakaButton from "../../../lib/ShakaButton.vue";
+
+import { ref } from "vue";
+export default {
+  components: {
+    ShakaDialog,
+    ShakaButton,
+  },
+  setup() {
+    const visible = ref(false);
+    const toggle = () => {
+      visible.value = !visible.value;
+    };
+    return { visible, toggle };
+  },
+};
 </script>
