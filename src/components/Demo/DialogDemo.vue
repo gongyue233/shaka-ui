@@ -1,77 +1,31 @@
 <template>
   <div>
-    DialogDemo
-
-    <shaka-button @click="toggleDialog">点击控制Dialog</shaka-button>
-    <shaka-dialog v-model:visible="dialog1">hi</shaka-dialog>
-    <shaka-dialog v-model:visible="dialog2" :closeOnClickOverlay="false"
-      >第二个对话框</shaka-dialog
-    >
-    <shaka-button @click="toggleDialog2">点击控制Dialog2</shaka-button>
-    <shaka-button @click="toggleDialog3">点击控制ddddddddddDialog</shaka-button>
-    <shaka-dialog
-      v-model:visible="dialog3"
-      :ok="thrd"
-      :cancel="forteg"
-      title="传哈的标题"
-    >
-      第三个对dddddddddd话 deded框hhhhhhhhhhhhhhhhhhhh
-    </shaka-dialog>
-
-    <shaka-button @click="showOpenDialog3"
-      >点击控制openShakaDialog函数</shaka-button
-    >
+    <h1>Dialog 对话框</h1>
+    <demo-2 :codeComp="DlgVisible" :description="description['vis']" />
+    <demo-2 :codeComp="DlgBtn" :description="description['btn']" />
   </div>
 </template>
 
-<script lang="ts">
-import ShakaDialog from "../../lib/ShakaDialog.vue";
-import ShakaButton from "../../lib/ShakaButton.vue";
-import { ref } from "vue";
-import openShakaDialog from "../../lib/openShakaDialog";
-export default {
-  components: { ShakaDialog, ShakaButton },
-  setup() {
-    const dialog1 = ref(true);
-    const toggleDialog = () => {
-      dialog1.value = !dialog1.value;
-    };
-    const dialog2 = ref(false);
-    const toggleDialog2 = () => {
-      dialog2.value = !dialog2.value;
-    };
-    const dialog3 = ref(false);
-    const toggleDialog3 = () => {
-      dialog3.value = !dialog3.value;
-    };
-    const thrd = () => {
-    };
-    const forteg = () => {
-      return false;
-    };
-    const showOpenDialog3 = () => {
-      openShakaDialog({
-        title: "open函数的标题",
-        content: "hahha",
-        ok() {
-          console.log("执行了open函数内的ok函数");
-        },
-        cancel() {
-          console.log("执行了open函数内的cancel函数");
-        }
-      });
-    };
+<script>
+import Demo2 from "../Demo2.vue";
+import DlgVisible from "./DlgDemo/DlgVisible.vue";
+import DlgBtn from "./DlgDemo/DlgBtn.vue";
 
+export default {
+  components: { Demo2, DlgVisible, DlgBtn },
+  setup() {
+    const description = {
+      vis: `visible 的类型是 Boolean ，当 visible 为 true 时显示 Dialog，通过 v-mode:visible 来控制 Dialog 显示。
+            title 属性用于定义标题，默认值为 "标题"。
+            closeOnClickOverlay 类型是 Boolean ，为 true 时点击遮罩层即可关闭 Dialog ，默认值为 true，本例展示 closeOnClickOverlay 为 false 的情况。
+            `,
+      btn: `ok属性 ：点击 “确定” 按钮触发的函数；cancel属性 ： 点击 “取消” 按钮触发的函数。当传递的函数返回值为 false 时可阻止关闭 Dialog`,
+    };
     return {
-      dialog1,
-      forteg,
-      toggleDialog,
-      dialog2,
-      toggleDialog2,
-      thrd,
-      dialog3,
-      toggleDialog3,
-      showOpenDialog3
+      Demo2,
+      DlgVisible,
+      description,
+      DlgBtn,
     };
   },
 };

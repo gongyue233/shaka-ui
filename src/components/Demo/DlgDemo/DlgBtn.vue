@@ -1,14 +1,10 @@
 <demo>
-基础用法
+“确定” 和 “取消” 按钮用法
 </demo>
 <template>
   <div>
     <shaka-button @click="toggle">点击打开Dialog</shaka-button>
-    <shaka-dialog
-      v-model:visible="visible"
-      title="标题内容"
-      :closeOnClickOverlay="false"
-    >
+    <shaka-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
       对话框内容
     </shaka-dialog>
   </div>
@@ -25,11 +21,17 @@ export default {
     ShakaButton,
   },
   setup() {
+    const ok = () => {
+      alert(`按下了 “确定" 按钮`);
+    };
+    const cancel = () => {
+      alert(`按下了 “取消” 按钮`);
+    };
     const visible = ref(false);
     const toggle = () => {
       visible.value = !visible.value;
     };
-    return { visible, toggle };
+    return { visible, toggle, ok, cancel };
   },
 };
 </script>
