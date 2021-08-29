@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 $shaka-demo-border: #ebebeb;
 .demo {
-  margin-bottom: 24px;
+  margin:32px 0;
   color: #323233;
   background-color: #fff;
   > h3 {
