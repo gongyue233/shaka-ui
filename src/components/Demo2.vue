@@ -2,8 +2,7 @@
   <div class="demo">
     <h3>{{ codeComp.__sourceCodeTitle }}</h3>
     <p>{{ description }}</p>
-      <component :is="codeComp" class="comps"></component>
-    
+    <component :is="codeComp" class="comps"></component>
     <div class="demo-code">
       <div class="code-show" @click="toggleCode">显示代码</div>
       <div class="code" v-if="codeVisible">
@@ -48,16 +47,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$shaka-demo-border:#ebebeb;
+$shaka-demo-border: #ebebeb;
 .demo {
   margin-bottom: 24px;
   color: #323233;
   background-color: #fff;
-  max-width: 80%;
   > h3 {
     margin-bottom: 16px;
     font-size: 22px;
-    color: #1F2F3D;
+    color: #1f2f3d;
   }
   > p {
     color: #34495e;
@@ -65,16 +63,17 @@ $shaka-demo-border:#ebebeb;
     line-height: 1.5;
     padding-bottom: 16px;
   }
-  > .comps{
+  > .comps {
     display: grid;
     grid-row: auto;
     grid-gap: 16px;
-    justify-content: start; 
+    justify-content: start;
+    align-items: center;
     grid-auto-flow: column;
   }
   > .demo-code {
     margin-top: 16px;
-    border:1px solid #ebebeb;
+    border: 1px solid #ebebeb;
     border-radius: 4px;
     > .code-show {
       text-align: center;

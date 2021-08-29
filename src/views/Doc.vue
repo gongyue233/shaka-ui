@@ -58,6 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$shaka-doc-border: #ebebeb;
 $shaka-doc-color: #036c86;
 $shaka-doc-color-lg: #35bdbd;
 $shaka-doc-font-color: #304455;
@@ -72,7 +73,7 @@ $shaka-doc-font-color: #304455;
     overflow-y: auto;
     position: relative;
     > .doc-nav {
-      border-right: 1px solid gray;
+      border-right: 1px solid $shaka-doc-border;
       background-color: #fff;
       flex-shrink: 0;
       padding: 24px 0px 0px 30px;
