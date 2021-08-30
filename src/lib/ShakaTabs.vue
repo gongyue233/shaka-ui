@@ -5,7 +5,7 @@
         class="shaka-tabs-nav-item"
         v-for="(t, index) in titles"
         :key="index"
-        :class="{ selected: t === selected }"
+        :class="{ selected: t === selected, disabled: disabledName === t }"
         :ref="
           (el) => {
             //el表示当前的元素
@@ -47,6 +47,7 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
+    const disabledName = ref<String>("");
 
     const makeIndicator = (init: Boolean) => {
       //获得被选中的标签名宽度
@@ -63,19 +64,20 @@ export default {
         indicator.value.style.transition = "250ms";
       }
     };
-
     onMounted(() => {
       makeIndicator(true);
     });
     onUpdated(() => {
       makeIndicator(false);
     });
-
     // 检查字子标签类型是否是ShakaTab
     defaults.forEach((t) => {
       //@ts-ignore
       if (t.type.name !== ShakaTab.name) {
         throw new Error("ShakaTabs 的子标签必须是 ShakaTab");
+      }
+      if (t.props.disabled) {
+        disabledName.value = t.props.title;
       }
     });
     const titles = defaults.map((tab) => {
@@ -84,6 +86,7 @@ export default {
     const select = (title: String) => {
       context.emit("update:selected", title);
     };
+
     return {
       defaults,
       titles,
@@ -91,6 +94,7 @@ export default {
       selectedItem,
       indicator,
       container,
+      disabledName,
     };
   },
 };
@@ -124,6 +128,11 @@ $shaka-tabs-span-h: 30px;
       }
       &.selected {
         color: $shaka-tabs-color;
+      }
+      &.disabled {        
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.5;
       }
     }
     > .shaka-tabs-nav-indicator {

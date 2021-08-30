@@ -71,7 +71,6 @@ export default {
 <style lang="scss">
 $shaka-btn-clr-norm: white;
 $shaka-btn-clr-black: #000;
-
 $shaka-btn-border-default: #969799;
 
 $shaka-btn-bclr-default: #fff;

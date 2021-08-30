@@ -1,6 +1,6 @@
 <demo>
 禁用状态  
-</demo>
+</demo> 
 <template>
   <div>
       <shaka-button :disabled="true">禁用状态</shaka-button>

@@ -11,6 +11,10 @@
             title:{
                 type:String,
                 default:'标题'
+            },
+            disabled:{
+                type:Boolean,
+                default:false
             }
         }
     }
