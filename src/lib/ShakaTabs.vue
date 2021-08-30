@@ -98,19 +98,18 @@ export default {
 <style lang="scss">
 $border-color: #d9d9d9;
 $color: #333;
-$shaka-tabs-font: 14px;
+$shaka-tabs-font: 16px;
 $shaka-tabs-font2: 16px;
 $shaka-tabs-color: #036c86;
-$shaka-tabs-color-h:#35bdbd;
+$shaka-tabs-color-h: #35bdbd;
 $shaka-tabs-span-h: 30px;
 .shaka-tabs {
   display: flex;
   flex-direction: column;
   color: $color;
   border: 1px solid $border-color;
-  width: fit-content;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  padding: 0px 20px;
+  border: 1px solid red;
   > .shaka-tabs-nav {
     display: flex;
     justify-content: space-around;

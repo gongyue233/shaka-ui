@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
 import ShakaSwitch from "../../../lib/ShakaSwitch.vue";
 export default {
   components: { ShakaSwitch },

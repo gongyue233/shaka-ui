@@ -14,7 +14,7 @@ import SwDisable from "./SwDemo/SwDisable.vue";
     },
     setup(){
       const description = {
-        checked: "通过 v-model 绑定开关的选中状态，true 表示开，false 表示关，默认是 false 。",
+        checked: "通过 v-model:checked 绑定开关的选中状态，true 表示开，false 表示关，默认是 false 。",
         disable:"通过 disabled 属性来禁用开关，禁用状态下开关不可点击。"
       }
       return {

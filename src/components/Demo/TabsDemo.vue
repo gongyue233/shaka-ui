@@ -1,38 +1,25 @@
 <template>
-  <div class="shaka-demo-tabs">
-    ShakaTabs的 Demo 页面
-    <hr />
-    <shaka-tabs class="tabs-demo" v-model:selected="selectedName">
-      <shaka-tab title="导航1">内容1</shaka-tab>
-      <shaka-tab title="导航2sss">内容2ss</shaka-tab>
-      <shaka-tab title="导航3">内容3</shaka-tab>
-      <shaka-tab title="导航4">内容4</shaka-tab>
-    </shaka-tabs>
-  </div>
+  <h1>Tabs 标签页</h1>
+  <demo-2 :codeComp="TabsSelected" :description="description['selected']" />
 </template>
 
-<script lang="ts">
-import ShakaTabs from "../../lib/ShakaTabs.vue";
-import ShakaTab from "../../lib/ShakaTab.vue";
-import { ref } from "vue";
+<script>
+import Demo2 from "../Demo2.vue";
+import TabsSelected from "./TabsDemo/TabsSelected.vue";
 export default {
   components: {
-    ShakaTabs,
-    ShakaTab,
+    Demo2,
+    TabsSelected,
   },
   setup() {
-    const selectedName = ref("导航1");
+    const description = {
+      selected: "通过 v-model:selected 绑定当前选中的标签对应的名称。 ",
+    };
     return {
-      selectedName,
+      Demo2,
+      description,
+      TabsSelected,
     };
   },
 };
 </script>
-
-<style lang="scss">
-.shaka-demo-tabs {
-  .tabs-demo {
-    width: 300px;
-  }
-}
-</style>
