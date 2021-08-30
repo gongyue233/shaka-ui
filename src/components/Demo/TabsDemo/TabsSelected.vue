@@ -2,14 +2,14 @@
 基础用法
 </demo>
 <template>
-<div>
-  <shaka-tabs v-model:selected="selectedName" class="tabs">
-    <shaka-tab title="导航1">内容1</shaka-tab>
-    <shaka-tab title="导航2">内容2</shaka-tab>
-    <shaka-tab title="导航3">内容3</shaka-tab>
-    <shaka-tab title="导航4">内容ddddddddddddddddddddddddddddddddddddddddddddddddd4</shaka-tab>
-  </shaka-tabs>
-</div>
+  <div>
+    <shaka-tabs v-model:selected="selectedName" class="tabs">
+      <shaka-tab title="导航1">内容1</shaka-tab>
+      <shaka-tab title="导航2">内容2</shaka-tab>
+      <shaka-tab title="导航3">内容3</shaka-tab>
+      <shaka-tab title="导航4">内容4</shaka-tab>
+    </shaka-tabs>
+  </div>
 </template>
 
 <script lang="ts">
@@ -27,8 +27,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scope>
-  .tabs{
-    width: 100%;
-  }
+<style lang="scss" scoped>
+.tabs {
+  width: 600px;
+}
 </style>

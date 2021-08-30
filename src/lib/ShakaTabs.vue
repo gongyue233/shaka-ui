@@ -109,7 +109,6 @@ $shaka-tabs-span-h: 30px;
   color: $color;
   border: 1px solid $border-color;
   padding: 0px 20px;
-  border: 1px solid red;
   > .shaka-tabs-nav {
     display: flex;
     justify-content: space-around;
@@ -136,7 +135,7 @@ $shaka-tabs-span-h: 30px;
     }
   }
   > .shaka-tabs-content {
-    padding: 20px 20px;
+    padding: 20px 12px;
     font-size: $shaka-tabs-font2;
     > .shaka-tabs-content-item {
       display: none;
