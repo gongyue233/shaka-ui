@@ -96,6 +96,7 @@ $shaka-doc-font-color: #304455;
           margin: 8px 0px;
           padding: 8px 0px;
           > a {
+            text-decoration: none;
             &.router-link-active {
               color: $shaka-doc-color;
               font-weight: bold;
