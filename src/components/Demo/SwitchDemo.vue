@@ -1,16 +1,16 @@
 <template>
 <h1>Switch 开关</h1>
-<demo-2 :codeComp="SwBool" :description="description['checked']" />
-<demo-2 :codeComp="SwDisable" :description="description['disable']"  />
+<demo :codeComp="SwBool" :description="description['checked']" />
+<demo :codeComp="SwDisable" :description="description['disable']"  />
 </template>
 
 <script>
-import Demo2 from "../Demo2.vue";
+import Demo from "../Demo.vue";
 import SwBool from "./SwDemo/SwBool.vue";
 import SwDisable from "./SwDemo/SwDisable.vue";
   export default {
     components:{
-      Demo2,SwBool,SwDisable
+      Demo,SwBool,SwDisable
     },
     setup(){
       const description = {
@@ -18,7 +18,7 @@ import SwDisable from "./SwDemo/SwDisable.vue";
         disable:"通过 disabled 属性来禁用开关，禁用状态下开关不可点击。"
       }
       return {
-        Demo2,SwBool,SwDisable,
+        Demo,SwBool,SwDisable,
         description
       }
     }

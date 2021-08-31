@@ -67,7 +67,6 @@ export default {
       }
       if(!props.ok){
         close()
-        console.log(props.ok)
       }
     };
     const cancel = () => {
