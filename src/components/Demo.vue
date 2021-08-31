@@ -4,7 +4,7 @@
     <p>{{ description }}</p>
     <component :is="codeComp" class="comps"></component>
     <div class="demo-code">
-      <div class="code-show" @click="toggleCode">显示代码</div>
+      <div class="code-show" @click="toggleCode">{{ text }}</div>
       <div class="code" v-if="codeVisible">
         <pre class="language-html" v-html="codeHtml"></pre>
       </div>
@@ -29,6 +29,13 @@ export default {
     const toggleCode = () => {
       codeVisible.value = !codeVisible.value;
     };
+    const text = computed(() => {
+      let t = "隐藏代码";
+      if (!codeVisible.value) {
+        t = "显示代码";
+      }
+      return t;
+    });
     const codeHtml = computed(() => {
       return Prism.highlight(
         props.codeComp.__sourceCode,
@@ -41,6 +48,7 @@ export default {
       codeHtml,
       codeVisible,
       toggleCode,
+      text,
     };
   },
 };
@@ -49,7 +57,7 @@ export default {
 <style lang="scss" scoped>
 $shaka-demo-border: #ebebeb;
 .demo {
-  margin:32px 0;
+  margin: 32px 0;
   color: #323233;
   background-color: #fff;
   > h3 {
@@ -71,7 +79,7 @@ $shaka-demo-border: #ebebeb;
     align-items: center;
     grid-auto-flow: column;
   }
-  
+
   > .demo-code {
     margin-top: 16px;
     border: 1px solid #ebebeb;
