@@ -1,6 +1,6 @@
 <template>
   <div class="doc-all">
-    <Topnav class="doc-top" />
+    <Topnav />
     <div class="doc-main">
       <div class="doc-nav" v-if="asideVisible">
         <div class="dov-nav-item">
@@ -8,9 +8,6 @@
           <ul class="items">
             <li>
               <router-link to="/doc/intro">介绍</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/install">安装</router-link>
             </li>
             <li>
               <router-link to="/doc/get-start">开始使用</router-link>

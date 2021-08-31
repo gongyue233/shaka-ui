@@ -71,6 +71,7 @@ $shaka-demo-border: #ebebeb;
     align-items: center;
     grid-auto-flow: column;
   }
+  
   > .demo-code {
     margin-top: 16px;
     border: 1px solid #ebebeb;

@@ -5,7 +5,7 @@
     </svg>
     <span class="logo">Shaka</span>
     <ul class="menu">
-      <li>GitHub</li>
+      <li @click="toggleAside">指南</li>
       <li><router-link to="/">首页</router-link></li>
     </ul>
   </div>
@@ -27,7 +27,6 @@ export default {
 
 <style lang="scss" scoped>
 $shaka-topnav-bg: #036c86;
-
 .topnav {
   display: flex;
   flex-wrap: nowrap;
@@ -52,7 +51,6 @@ $shaka-topnav-bg: #036c86;
       padding: 0px 12px;
     }
   }
-
   @media (max-width: 500px) {
     > .logo {
       margin: 0 auto;

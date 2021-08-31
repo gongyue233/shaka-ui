@@ -9,7 +9,6 @@ import DialogDemo from "./components/Demo/DialogDemo.vue";
 import TabsDemo from "./components/Demo/TabsDemo.vue";
 import Markdown from "./components/Markdown.vue";
 import intro from "./markdown/intro.md";
-import install from "./markdown/install.md";
 import getStart from "./markdown/getStart.md";
 
 import { h } from "vue";
@@ -32,7 +31,6 @@ export const router = createRouter({
         { path: "tabs", component: TabsDemo },
         { path: "intro", component: md(intro, "intro") },
         { path: "get-start", component: md(getStart, "getStart") },
-        { path: "install", component: md(install, "install") },
       ],
     },
   ],

@@ -4,7 +4,7 @@ import { createApp, h } from "vue";
 
 import ShakaDialog from "./ShakaDialog.vue";
 const openShakaDialog = (options) => {
-  const { title, content, ok, cancel, closeOnClickOverlay, visible } = options;
+  const { title, content, ok, cancel, closeOnClickOverlay} = options;
   const div = document.createElement("div");
   document.body.appendChild(div);
   const app = createApp({
