@@ -5,7 +5,7 @@
     <h2>以 Vue3 制作的 UI 框架</h2>
     <ul class="shaka-home-link">
       <router-link to="/doc">文档</router-link>
-      <router-link to="/">GitHub</router-link>
+      <a href="https://github.com/gongyue233/shaka-ui">GitHub</a>
     </ul>
     <div class="shaka-home-features">
       <ul>

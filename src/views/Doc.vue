@@ -10,7 +10,7 @@
               <router-link to="/doc/intro">介绍</router-link>
             </li>
             <li>
-              <router-link to="/doc/get-start">开始使用</router-link>
+              <router-link to="/doc/get-start">快速上手</router-link>
             </li>
           </ul>
         </div>
