@@ -19,4 +19,6 @@ export default {
       }`.trim(); //从demo标签内的内容变成title
     },
   },
+  base: './' ,
+	assetsDir: 'assets' 
 };

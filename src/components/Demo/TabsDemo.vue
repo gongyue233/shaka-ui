@@ -24,7 +24,7 @@ export default {
     return {
       Demo,
       description,
-    TabsDisabled,
+      TabsDisabled,
       TabsSelected,
     };
   },

@@ -9,7 +9,7 @@
       title="标题内容"
       :closeOnClickOverlay="false"
     >
-      对话框内容
+      <template v-slot:content> 对话框内容 </template>
     </shaka-dialog>
   </div>
 </template>
@@ -17,7 +17,6 @@
 <script>
 import ShakaDialog from "../../../lib/ShakaDialog.vue";
 import ShakaButton from "../../../lib/ShakaButton.vue";
-
 import { ref } from "vue";
 export default {
   components: {

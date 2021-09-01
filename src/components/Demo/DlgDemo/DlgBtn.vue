@@ -5,7 +5,7 @@
   <div>
     <shaka-button @click="toggle">点击打开Dialog</shaka-button>
     <shaka-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
-      对话框内容
+      <template v-slot:content> 对话框内容 </template>
     </shaka-dialog>
   </div>
 </template>
@@ -13,7 +13,6 @@
 <script>
 import ShakaDialog from "../../../lib/ShakaDialog.vue";
 import ShakaButton from "../../../lib/ShakaButton.vue";
-
 import { ref } from "vue";
 export default {
   components: {
