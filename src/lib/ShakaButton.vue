@@ -11,7 +11,7 @@
           <use :xlink:href="`#icon-${loadingColor}`"></use>
         </svg>
       </span>
-      <slot />
+      <slot></slot>
     </button>
   </div>
 </template>

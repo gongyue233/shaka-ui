@@ -11,7 +11,7 @@
             </svg>
           </header>
           <main>
-            <slot name="content"/>
+            <slot name="content"></slot>
           </main>
           <footer>
             <shaka-button @click="cancel">取消</shaka-button>
