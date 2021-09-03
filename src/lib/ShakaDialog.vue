@@ -23,7 +23,7 @@
   </template>
 </template>
 
-<script>
+<script lang="ts">
 import ShakaButton from "./ShakaButton.vue";
 export default {
   name: "ShakaDialog",
@@ -65,12 +65,12 @@ export default {
       if (props.ok && props.ok() !== false) {
         close();
       }
-      if(!props.ok){
-        close()
+      if (!props.ok) {
+        close();
       }
     };
     const cancel = () => {
-      if (props.cancel?.() !== false) {
+      if (props.cancel && props.cancel() !== false) {
         close();
       }
     };
