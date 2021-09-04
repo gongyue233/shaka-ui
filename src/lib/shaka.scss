@@ -9,4 +9,10 @@
     "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
     SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 // 为了 组件内的 CSS 不被覆盖，使用时要在 main.ts内，先引入 shaka.scss再引入 App.vue

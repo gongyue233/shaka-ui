@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import "./assert/closed";
 import ShakaButton from "./ShakaButton.vue";
 export default {
   name: "ShakaDialog",

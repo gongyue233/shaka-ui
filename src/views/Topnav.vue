@@ -3,7 +3,7 @@
     <svg class="icon menu-logo" @click="toggleAside">
       <use xlink:href="#icon-menu"></use>
     </svg>
-    <span class="logo">Shaka</span>
+    <span class="logo"><router-link to="/">Shaka</router-link></span>
     <ul class="menu">
       <li @click="toggleAside">指南</li>
       <li><router-link to="/">首页</router-link></li>

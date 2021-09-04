@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import "./assert/loading";
 import { computed } from "vue";
 export default {
   name: "ShakaButton",
