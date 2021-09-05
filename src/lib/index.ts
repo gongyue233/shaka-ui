@@ -1,6 +1,6 @@
 /// <reference path="../shims-vue.d.ts"/>
 
-
+import './shaka.scss';
 export { default as ShakaSwitch } from "./ShakaSwitch.vue";
 export { default as ShakaButton } from "./ShakaButton.vue";
 export { default as ShakaTab } from "./ShakaTab.vue";
