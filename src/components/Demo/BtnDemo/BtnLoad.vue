@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import ShakaButton from "../../../lib/ShakaButton.vue";
+//使用时应改为 import {ShakaButton} from "shaka-ui";
 export default {
   components: { ShakaButton },
 };

@@ -13,6 +13,8 @@
 <script>
 import ShakaDialog from "../../../lib/ShakaDialog.vue";
 import ShakaButton from "../../../lib/ShakaButton.vue";
+//使用时应改为 import {ShakaButton, ShakaDialog} from "shaka-ui";
+
 import { ref } from "vue";
 export default {
   components: {

@@ -16,6 +16,8 @@
 import { ref } from "vue";
 import ShakaTabs from "../../../lib/ShakaTabs.vue";
 import ShakaTab from "../../../lib/ShakaTab.vue";
+//使用时应改为 import {ShakaTab, ShakaTabs} from "shaka-ui";
+
 
 export default {
   components: { ShakaTabs, ShakaTab },

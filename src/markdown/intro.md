@@ -1,6 +1,6 @@
 # 介绍
 
-Shaka 是本人基于 Vue3 和 TypeScript 制作的 UI 组件库。
+Shaka 是基于 Vue3 和 TypeScript 制作的 UI 组件库。
 
 此 UI 库已经开源，源代码地址在 https://github.com/gongyue233/shaka-ui。
 
